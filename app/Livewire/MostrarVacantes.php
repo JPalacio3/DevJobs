@@ -9,7 +9,9 @@ class MostrarVacantes extends Component
 {
     public function render()
     {
-        $vacantes = Vacante::where('user_id', auth()->user()->id)->paginate(10);
+        $vacantes = Vacante::where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         return view('livewire.mostrar-vacantes', [
             'vacantes' => $vacantes,
