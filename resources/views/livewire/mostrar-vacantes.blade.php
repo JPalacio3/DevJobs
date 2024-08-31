@@ -28,7 +28,7 @@
             <a href="#" class="
             bg-slate-800 py-2 px-4 rounded-lg text-white text-sm font-bold uppercase text-center">Candidatos</a>
 
-            <a href="#" class="
+            <a href="{{route('vacantes.edit', $vacante->id)}}" class="
             bg-blue-800 py-2 px-4 rounded-lg text-white text-sm font-bold uppercase text-center">Editar</a>
 
             <a href="#" class="
@@ -37,7 +37,7 @@
     </div>
 
     @empty
-    <p class="p-3 text-center text-sm text-gray-600 uppercase font-bold"> No hay vacantes que mostrar</p>
+    <p class="p-3 text-center text-sm text-gray-600 uppercase font-bold">No hay vacantes que mostrar</p>
     @endforelse
 
     {{-- Paginación de las vacantes  --}}
