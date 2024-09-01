@@ -44,6 +44,9 @@ class VacanteController extends Controller
      */
     public function edit(Vacante $vacante)
     {
+        // política de autorización de edición de vacante por usuario que la creó
+        $this->authorize('update', $vacante);
+
         return view('vacantes.edit', [
             'vacante' => $vacante,
         ]);

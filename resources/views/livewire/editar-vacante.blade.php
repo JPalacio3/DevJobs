@@ -71,13 +71,12 @@
         <livewire:mostrar-alerta :message="$message" />
         @enderror
 
-        <img src="{{asset('storage/vacantes/'. $imagen)}}" alt="{{'Imagen Vacante '. $titulo}}">
-
 
         <div class="my-5 text-center w-80">
             @if($imagen_nueva)
             <img class="rounded" src="{{$imagen_nueva->temporaryUrl()}}" alt="Imagen de oferta de empleo">
-
+            @else
+            <img class="rounded" src="{{asset('storage/vacantes/'. $imagen)}}" alt="{{'Imagen Vacante '. $titulo}}">
             @endif
         </div>
 

@@ -70,12 +70,11 @@ class EditarVacante extends Component
         $vacante->descripcion = $datos['descripcion'];
         $vacante->imagen = $datos['imagen'] ?? $vacante->imagen;
 
-
         // Guardar la vacante
         $vacante->save();
 
         // Redireccionar
-        session()->flash('mensaje', 'La vacante se ha editado correctamente');
+        session()->flash('mensaje', 'La vacante: ' . $datos['titulo'] . ' se ha editado correctamente');
         return redirect()->route('vacantes.index');
     }
 
