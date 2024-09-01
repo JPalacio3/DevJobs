@@ -6,6 +6,7 @@ use App\Models\Vacante;
 use Livewire\Component;
 
 use function Laravel\Prompts\alert;
+use Illuminate\Support\Facades\Storage;
 
 class MostrarVacantes extends Component
 {
@@ -15,6 +16,11 @@ class MostrarVacantes extends Component
 
     public function eliminarVacante(Vacante $vacante)
     {
+        // Compruebo Policy
+        $this->authorize('delete', $vacante);
+        // Elimino Imagen
+        $result = Storage::delete('public/vacantes/' . $vacante->imagen);
+        // Elimino Vacante
         $vacante->delete();
     }
 
