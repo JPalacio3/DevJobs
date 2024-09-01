@@ -64,13 +64,21 @@
     </div>
 
     <div>
-        <x-input-label for="imagen" :value="__('Imágen')" />
-        <x-text-input id="imagen" class=" my-10 block mt-1 w-full" type="file" wire:model="imagen" accept="image/*" />
+        <x-input-label for="imagen" :value="__('Imágen Actual')" />
+        <x-text-input id="imagen" class=" my-10 block mt-1 w-full" type="file" wire:model="imagen_nueva" accept="image/*" />
 
-        <div class="my-5 w-80">
-            <x-input-label :value="__('Imagen Actual')" />
-            <img src="{{asset('storage/vacantes/'.$imagen)}}" alt="{{'Imagen Vacante '. $titulo}}">
+        @error('imagen_nueva')
+        <livewire:mostrar-alerta :message="$message" />
+        @enderror
 
+        <img src="{{asset('storage/vacantes/'. $imagen)}}" alt="{{'Imagen Vacante '. $titulo}}">
+
+
+        <div class="my-5 text-center w-80">
+            @if($imagen_nueva)
+            <img class="rounded" src="{{$imagen_nueva->temporaryUrl()}}" alt="Imagen de oferta de empleo">
+
+            @endif
         </div>
 
     </div>
