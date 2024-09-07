@@ -51,7 +51,7 @@
 
     {{-- Formulario para enviar curricullum y aplicar a empleo solo para desarrolladores --}}
     @cannot('create', App\Models\Vacante::class)
-    <livewire:postular-vacante />
+    <livewire:postular-vacante :vacante="$vacante" />
     @endcannot
 
 </div>
