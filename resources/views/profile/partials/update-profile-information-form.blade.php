@@ -24,6 +24,13 @@
         </div>
 
         <div>
+            <x-input-label for="rol" :value="__('Rol')" />
+            <x-text-input id="rol" name="rol" type="text" class="mt-1 block w-full text-gray-500" :value="old('rol', $user->rol === 1 ? 'Desarrollador' : 'Reclutador')" required autofocus autocomplete="rol" disabled />
+            <x-input-error class="mt-2" :messages="$errors->get('rol')" />
+        </div>
+
+
+        <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full  text-gray-400" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
