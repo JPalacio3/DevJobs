@@ -5,7 +5,12 @@
 
         <div class="mb-4">
             <x-input-label for="cv" :value="__('Curricullum u Hoja de Vida ( PDF )')" />
-            <x-text-input id="cv" class=" my-10 block mt-1 w-full" type="file" wire:model="imagen" accept=".pdf" />
+            <x-text-input id="cv" class=" my-10 block mt-1 w-full" type="file" wire:model="cv" accept=".pdf" />
         </div>
+
+        <x-primary-button class="my-5">
+            {{__('Postularme')}}
+        </x-primary-button>
+
     </form>
 </div>
