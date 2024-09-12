@@ -74,8 +74,6 @@
         <div class="my-5 text-center w-80">
             @if($imagen)
             <img class="rounded" src="{{$imagen->temporaryUrl()}}" alt="Imagen de oferta de empleo">
-            @else
-
             @endif
         </div>
 
