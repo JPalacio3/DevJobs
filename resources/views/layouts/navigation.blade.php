@@ -28,6 +28,13 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
 
                 @auth
+                {{-- Verificar las Notificaciones que tenga el usuario --}}
+                @if(auth()->user()->rol === 2)
+                <a href="{{route('notificaciones')}}" class="mr-5 h-7 w-7 font-extra-bold text-white bg-indigo-600 hover:bg-indigo-800  rounded-full flex flex-col justify-center items-center ">
+                    {{ auth()->user()->unreadNotifications->count() }}
+                </a>
+                @endif
+
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
@@ -89,6 +96,18 @@
 
         @auth
         <div class="pt-2 pb-3 space-y-1">
+
+            <div class="flex gap-2 items-center mb-5 p-5">
+                {{-- Verificar las Notificaciones que tenga el usuario --}}
+                @if(auth()->user()->rol === 2)
+                <a href="{{route('notificaciones')}}" class="mr-5 h-7 w-7 font-extra-bold text-white bg-indigo-600 hover:bg-indigo-800  rounded-full flex flex-col justify-center items-center ">
+                    {{ auth()->user()->unreadNotifications->count() }}
+                </a>
+                <p class="text-gray-600 font-medium text-base">
+                    @choice('Notificación|Notificaciones', auth()->user()->unreadNotifications->count())
+                </p>
+                @endif
+            </div>
             <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
                 {{ __('Mis Vacantes') }}
             </x-responsive-nav-link>
@@ -96,6 +115,7 @@
             <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
                 {{ __('Crear Vacante') }}
             </x-responsive-nav-link>
+
         </div>
 
         <!-- Responsive Settings Options -->
