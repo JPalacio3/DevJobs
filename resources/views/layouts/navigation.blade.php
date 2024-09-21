@@ -10,9 +10,11 @@
                     </a>
                 </div>
 
-                @auth
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    @auth
+                    @can('create', App\Models\Vacante::class)
+
                     <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
                         {{ __('Mis Vacantes') }}
                     </x-nav-link>
@@ -21,6 +23,7 @@
                         {{ __('Crear Vacante') }}
                     </x-nav-link>
                 </div>
+                @endcan
                 @endauth
             </div>
 
@@ -29,11 +32,12 @@
 
                 @auth
                 {{-- Verificar las Notificaciones que tenga el usuario --}}
-                @if(auth()->user()->rol === 2)
+                @can('create', App\Models\Vacante::class)
+
                 <a href="{{route('notificaciones')}}" class="mr-5 h-7 w-7 font-extra-bold text-white bg-indigo-600 hover:bg-indigo-800  rounded-full flex flex-col justify-center items-center ">
                     {{ auth()->user()->unreadNotifications->count() }}
                 </a>
-                @endif
+                @endcan
 
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">

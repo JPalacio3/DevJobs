@@ -39,7 +39,7 @@ class Vacante extends Model
 
     public function candidatos()
     {
-        return $this->hasMany(Candidato::class);
+        return $this->hasMany(Candidato::class)->latest();
     }
 
     public function reclutador()
