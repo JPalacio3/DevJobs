@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     @empty
-                    <p class=" text-center text-gra-600">No Hay Noificaciones Nuevas</p>
+                    <p class=" text-center text-gra-600">No Hay Notificaciones Nuevas</p>
                     @endforelse
 
                 </div>

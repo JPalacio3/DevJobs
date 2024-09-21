@@ -6,20 +6,21 @@
         {{session('mensaje')}}
     </p>
     @else
-    <form wire:submit.prevent="postularme" class="w-96 mt-5">
+    <form wire:submit.prevent="postularme" class="w-96 max-w-full mt-5">
 
         <div class="mb-4">
             <x-input-label for="cv" :value="__('Curricullum / Hoja de Vida ( PDF )')" />
-            <x-text-input id="cv" class=" my-5 block mt-1 w-full" type="file" wire:model="cv" accept=".pdf" />
+            <x-text-input id="cv" class="my-5 block mt-1 w-full" type="file" wire:model="cv" accept=".pdf" />
         </div>
 
         @error('cv')
-        <livewire:mostrar-alerta :message="$message">
-            @enderror
+        <livewire:mostrar-alerta :message="$message" />
+        @enderror
 
-            <x-primary-button class="my-5">
-                {{__('Postularme')}}
-            </x-primary-button>
+        <x-primary-button class="my-5 hover:bg-blue-700 focus:ring focus:ring-blue-500">
+            {{__('Postularme')}}
+        </x-primary-button>
+
     </form>
     @endif
 </div>
