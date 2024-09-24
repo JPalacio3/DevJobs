@@ -11,7 +11,6 @@ class CandidatoController extends Controller
      */
     public function index(Vacante $vacante)
     {
-
         return view('candidatos.index', [
             'vacante' => $vacante,
         ]);

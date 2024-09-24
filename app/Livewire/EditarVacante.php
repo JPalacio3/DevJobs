@@ -32,7 +32,6 @@ class EditarVacante extends Component
         'ultimo_dia' => 'required',
         'descripcion' => 'required',
         'imagen_nueva' => 'nullable|image|max:1024',
-
     ];
 
     public function mount(Vacante $vacante)

@@ -104,13 +104,13 @@
             <div class="flex gap-2 items-center mb-5 p-5">
                 {{-- Verificar las Notificaciones que tenga el usuario --}}
                 @if(auth()->user()->rol === 2)
-                <a href="{{route('notificaciones')}}" class="mr-5 h-7 w-7 font-extra-bold text-white bg-indigo-600 hover:bg-indigo-800  rounded-full flex flex-col justify-center items-center ">
+                <a href="{{route('notificaciones')}}" class="mr-5 h-7 w-7 font-extra-bold text-white bg-indigo-600 hover:bg-indigo-800  rounded-full flex flex-col md:justify-center md:items-center">
                     {{ auth()->user()->unreadNotifications->count() }}
                 </a>
                 <p class="text-gray-600 font-medium text-base">
                     @choice('Notificación|Notificaciones', auth()->user()->unreadNotifications->count())
                 </p>
-                @endif
+
             </div>
             <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
                 {{ __('Mis Vacantes') }}
@@ -119,6 +119,7 @@
             <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
                 {{ __('Crear Vacante') }}
             </x-responsive-nav-link>
+            @endif
 
         </div>
 

@@ -18,6 +18,12 @@
                             "> {{$vacante->titulo}}
                         </a>
                         <p class="text-base text-gray-600 mb-2">{{$vacante->empresa}}</p>
+                        <p class="text-base font-bold text-gray-600 mb-2">{{$vacante->categoria->categoria}}</p>
+                        <p class="text-sm text-gray-600 mb-2">{{$vacante->salario->salario}}</p>
+
+                        <p class="font-bold text-xs text-gray-600">Publicado:
+                            <span class="font-bold text-indigo-600">{{$vacante->created_at->format('d / M / Y')}}</span>
+                        </p>
                         <p class="font-bold text-xs text-gray-600">Último día para postularse:
                             <span class="font-bold text-indigo-600">{{$vacante->ultimo_dia->format('d / M / Y')}}</span>
                         </p>

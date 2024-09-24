@@ -14,7 +14,6 @@ class NotificacionController extends Controller
         // Limpiar notificaciones una vez leídas
         auth()->user()->unreadNotifications->markAsRead();
 
-
         return view('notificaciones.index', [
             'notificaciones' => $notificaciones
         ]);
